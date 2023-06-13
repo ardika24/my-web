@@ -17,7 +17,7 @@ const Home = ({ darkMode }: HomeProps) => {
         darkMode ? 'dark' : ''
       }`}
     >
-      <div className='max-w-md p-6 rounded-lg shadow-xl flex flex-col items-center bg-white dark:bg-gray-300'>
+      <div className='max-w-md p-6 rounded-lg shadow-xl flex flex-col items-center dark:bg-gray-300'>
         <div className='flex flex-col items-center'>
           <img
             className='w-48 h-48 rounded-full mb-4'
@@ -26,16 +26,22 @@ const Home = ({ darkMode }: HomeProps) => {
           />
           <p className='text-2xl font-semibold mb-4'>Nur Ardika</p>
           <div className='flex'>
-            <a href='link_github' className='mr-2'>
+            <a href='https://github.com/ardika24' className='mr-2'>
               <FontAwesomeIcon icon={faGithub} size='2x' />
             </a>
-            <a href='link_linkedin' className='mr-2'>
+            <a
+              href='https://www.linkedin.com/in/nur-ardika-0b54861ab/'
+              className='mr-2'
+            >
               <FontAwesomeIcon icon={faLinkedin} size='2x' />
             </a>
-            <a href='link_twitter' className='mr-2'>
+            <a href='https://twitter.com/nurardika1' className='mr-2'>
               <FontAwesomeIcon icon={faTwitter} size='2x' />
             </a>
-            <a href='link_instagram' className='mr-2'>
+            <a
+              href='https://www.instagram.com/nurardika__/?hl=id'
+              className='mr-2'
+            >
               <FontAwesomeIcon icon={faInstagram} size='2x' />
             </a>
           </div>
