@@ -1,13 +1,12 @@
 :root {
-  --clr-bg-dark: #1f2937; /* gray-800 */
-  --clr-bg-light: #fafafa; /* zinc-50 */
+  --clr-bg-dark: #152642; 
+  --clr-bg-light: #d0d4d7; 
 
-  --clr-text-dark: #1f2937; /* gray-200 */
-  --clr-text-light: #fafafa; /* zinc-50 */
-}
+  --clr-text-dark: #1f2937; 
+  --clr-text-light: #212529; 
 
-* {
-  cursor: none;
+  --clr-textNav-dark: #767D92;
+  --clr-textNav-light: #30353ce4;
 }
 
 .dark {
@@ -21,11 +20,12 @@
 }
 
 nav.dark {
-  background-color: #334155;
-  color: var(--clr-text-dark);
+  background-color: #353C51;
+  color: var(--clr-textNav-dark);
+
 }
 
 nav.light {
-  background-color: var(--clr-bg-light);
-  color: var(--clr-text-light);
+  background-color: #515865;
+  color: var(--clr-textNav-light);
 }

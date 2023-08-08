@@ -48,6 +48,7 @@ function MobileNav({ open, setOpen, darkMode }: MobileNavProps) {
           Contact
         </NavLink>
       </div>
+      
     </div>
   );
 }
@@ -116,7 +117,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
               to={navItem.to}
               onClick={() => setActive(i)}
               className={`text-xl p-2.5 rounded-full sm:cursor-pointer ${
-                i === active ? 'bg-gray-400 text-white' : ''
+                i === active ? 'bg-gray-600 text-white' : ''
               }`}
             >
               {navItem.label}
