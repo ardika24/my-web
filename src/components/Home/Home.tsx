@@ -5,7 +5,6 @@ import {
   faTwitter,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
-
 interface HomeProps {
   darkMode: boolean;
 }
@@ -13,11 +12,11 @@ interface HomeProps {
 const Home = ({ darkMode }: HomeProps) => {
   return (
     <div
-      className={`flex justify-center items-center min-h-screen ${
+      className={`flex flex-col justify-center items-center min-h-screen ${
         darkMode ? 'dark' : ''
       }`}
     >
-      <div className='max-w-md p-6 rounded-lg shadow-xl flex flex-col items-center dark:bg-gray-300'>
+      <div className='max-w-md p-6 rounded-lg shadow-xl mb-6 dark:bg-gray-300'>
         <div className='flex flex-col items-center'>
           <img
             className='w-48 h-48 rounded-full mb-4'

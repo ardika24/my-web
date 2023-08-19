@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { FiActivity, FiMoon, FiSun } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiActivity } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
+import DarkModeToggle from '../DarkModeToggle';
 
 interface MobileNavProps {
   open: boolean;
@@ -8,50 +9,35 @@ interface MobileNavProps {
   darkMode: boolean;
 }
 
-function MobileNav({ open, setOpen, darkMode }: MobileNavProps) {
-  const [menuTextColor, setMenuTextColor] = useState('');
-
-  useEffect(() => {
-    setMenuTextColor(darkMode ? 'text-white' : 'text-black');
-  }, [darkMode]);
-
+const MobileNav = ({ open, setOpen }: MobileNavProps) => {
   return (
     <div
       className={`absolute top-0 left-0 h-screen w-screen bg-white dark:bg-gray-900 transform ${
         open ? '-translate-x-0' : '-translate-x-full'
-      } transition-transform duration-300 ease-in-out filter drop-shadow-md`}
+      } transition-transform duration-300 ease-in-out drop-shadow-md`}
     >
-      <div className='flex items-center justify-center filter drop-shadow-md bg-white dark:bg-gray-900 h-20'>
+      <div className='flex items-center justify-center drop-shadow-md bg-white dark:bg-gray-900 h-20'>
         {/* logo container */}
-        <a className={`text-xl font-semibold ${menuTextColor}`}>Ardika</a>
       </div>
       <div className='flex flex-col ml-4'>
         <NavLink
           to='/'
-          className={`text-xl font-medium my-4 ${menuTextColor}`}
+          className={`text-xl font-medium my-4`}
           onClick={() => setOpen(!open)}
         >
           Home
         </NavLink>
         <NavLink
           to='/project'
-          className={`text-xl font-medium my-4 ${menuTextColor}`}
+          className={`text-xl font-medium my-4 `}
           onClick={() => setOpen(!open)}
         >
           Project
         </NavLink>
-        <NavLink
-          to='/contact'
-          className={`text-xl font-normal my-4 ${menuTextColor}`}
-          onClick={() => setOpen(!open)}
-        >
-          Contact
-        </NavLink>
       </div>
-      
     </div>
   );
-}
+};
 
 interface NavbarProps {
   darkMode: boolean;
@@ -59,23 +45,17 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
-  const [darkModeButton, setDarkModeButton] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
 
   const navItems = [
     { to: '/', label: 'Home' },
     { to: '/project', label: 'Project' },
-    { to: '/contact', label: 'Contact' },
   ];
-
-  useEffect(() => {
-    setDarkModeButton(darkMode);
-  }, [darkMode]);
 
   return (
     <nav
-      className={`flex filter drop-shadow-md bg-whites px-4 py-4 h-20 items-center ${
+      className={`flex drop-shadow-md bg-whites px-4 py-4 h-20 items-center ${
         darkMode ? 'dark' : ''
       }`}
     >
@@ -96,7 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
           {/* hamburger Button */}
           <span
             className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${
-              open ? 'rotate-45 translate-y-3.5' : ''
+              open ? 'translate-y-3.5' : ''
             }`}
           />
           <span
@@ -106,7 +86,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
           />
           <span
             className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${
-              open ? '-rotate-45 -translate-y-3.5' : ''
+              open ? '-translate-y-3.5' : ''
             }`}
           />
         </div>
@@ -125,21 +105,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
           ))}
         </div>
         <div className='ml-4'>
-          <button
-            className={`w-8 h-8 rounded-full ${
-              darkModeButton ? 'bg-gray-800' : 'bg-gray-200'
-            } flex items-center justify-center`}
-            onClick={() => {
-              setDarkModeButton(!darkModeButton);
-              toggleDarkMode();
-            }}
-          >
-            {darkMode ? (
-              <FiSun size={16} color={darkModeButton ? 'white' : 'black'} />
-            ) : (
-              <FiMoon size={16} color={darkModeButton ? 'white' : 'black'} />
-            )}
-          </button>
+          <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
       </div>
     </nav>

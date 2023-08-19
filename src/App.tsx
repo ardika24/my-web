@@ -3,6 +3,7 @@ import './App.css';
 
 import Wrapper from './components/Layout/Wrapper';
 import Home from './components/Home/Home';
+import Project from './components/Project/Project';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Wrapper>
         <Routes>
           <Route path='/' element={<Home darkMode={false} />} />
-          <Route path='/project' />
+          <Route path='/project' element={<Project />} />
           <Route path='/contact' />
         </Routes>
       </Wrapper>
