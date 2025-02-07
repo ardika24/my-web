@@ -1,4 +1,4 @@
-import Card from './Card';
+import Card from './Card/Card';
 
 const projects = [
   {
@@ -13,7 +13,7 @@ const projects = [
     desc: 'Crafted a sophisticated Medical Record Management App using Next.js and Prisma. Empowers healthcare professionals to manage patient data, medical records, and pharmacy stock efficiently.',
     tech: 'NextJs, Prisma, PostgreSQL',
     imageSrc: '/images/medicalRecord.png',
-    githubLink: 'http://103.23.199.120/',
+    githubLink: 'https://github.com/ardika24?tab=repositories',
   },
 ];
 

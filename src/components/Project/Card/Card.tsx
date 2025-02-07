@@ -1,6 +1,7 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import styles from './Card.module.scss';
 
 interface ProjectProps {
   title: string;
@@ -18,18 +19,18 @@ const Card: React.FC<ProjectProps> = ({
   imageSrc,
 }) => {
   return (
-    <div className='flex flex-col items-center bg-white p-4 rounded-md shadow-sm mb-4'>
-      <h2 className='text-lg font-semibold mb-2'>{title}</h2>
+    <div className={styles.card}>
       <img
         src={imageSrc}
         alt={`Screenshot of ${title}`}
-        className='w-full rounded-lg mb-2'
+        className={styles.cardImage}
       />
-      <p className='text-gray-600 mb-2'>{desc}</p>
-      <p className='text-gray-400 mb-2'>{tech}</p>
-      <div className='flex'>
-        <a href={githubLink} className='text-gray-500 hover:text-gray-800'>
-          <FontAwesomeIcon icon={faGithub} />
+      <div className={styles.cardContent}>
+        <h3 className={styles.cardTitle}>{title}</h3>
+        <p className={styles.cardDescription}>{desc}</p>
+        <p className='text-gray-400 mb-2'>{tech}</p>
+        <a href={githubLink} className={styles.cardButton}>
+          Learn More
         </a>
       </div>
     </div>
